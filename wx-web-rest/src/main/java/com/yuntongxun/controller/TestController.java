@@ -1,8 +1,10 @@
 package com.yuntongxun.controller;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,6 +20,9 @@ import java.util.Map;
 @Controller
 @EnableAutoConfiguration
 public class TestController {
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
 
     @Value("${test}")
@@ -55,6 +60,13 @@ public class TestController {
         map.put("cccc", "你俩的禄口机场斯蒂芬路上慢点");
         map.put("nameKey", path);
         return new ModelAndView("test", map);
+    }
+
+
+    @RequestMapping("/redis")
+    public String redis() {
+        redisTemplate.opsForValue().set("aaa", "ssssss");
+        return "test";
     }
 
 
