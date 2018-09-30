@@ -9,7 +9,7 @@ public class BaseMessage {
     // 开发者微信号
     private String FromUserName;
     // 消息创建时间 （整型）
-    private String CreateTime;
+    private long CreateTime;
     // 消息类型（text/music/news）
     private String MsgType;
     // 位0x0001被标志时，星标刚收到的消息
@@ -31,11 +31,11 @@ public class BaseMessage {
         FromUserName = fromUserName;
     }
 
-    public String getCreateTime() {
+    public long getCreateTime() {
         return CreateTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(long createTime) {
         CreateTime = createTime;
     }
 
