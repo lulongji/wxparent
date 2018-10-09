@@ -147,12 +147,8 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.8</version>
         </dependency>
-
     </dependencies>
-    <build>
-        <plugins>
-        </plugins>
-    </build>
+
     <modules>
         <module>wx-model</module>
         <module>wx-api</module>
