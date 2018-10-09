@@ -1,4 +1,4 @@
-package com.yuntongxun.model.wechat.domain;
+package com.yuntongxun.model.wechat.constants;
 
 /**
  * @Description:

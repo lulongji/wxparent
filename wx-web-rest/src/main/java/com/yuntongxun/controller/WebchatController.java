@@ -3,11 +3,11 @@ package com.yuntongxun.controller;
 import com.yuntongxun.base.webchat.SignUtil;
 import com.yuntongxun.base.webchat.XmlUtil;
 import com.yuntongxun.model.wechat.utils.MessageUtil;
-import com.yuntongxun.model.wechat.utils.WXUtils;
-import com.yuntongxun.utils.WeChatUtil;
+import com.yuntongxun.model.wechat.utils.WeChatUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,7 +37,7 @@ public class WebchatController {
      * @param appid
      * @throws Exception
      */
-    @RequestMapping(value = "/{appid}/process", produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/{appid}/process", produces = "application/json;charset=UTF-8", method = RequestMethod.GET)
     public void processGet(HttpServletRequest request, HttpServletResponse response, @PathParam("appid") String appid) throws Exception {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
@@ -73,7 +73,7 @@ public class WebchatController {
      * @param appid
      * @throws Exception
      */
-    @RequestMapping(value = "/{appid}/process", produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/{appid}/process", produces = "application/json;charset=UTF-8", method = RequestMethod.POST)
     public void processPost(HttpServletRequest request, HttpServletResponse response, @PathParam("appid") String appid) throws Exception {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
@@ -102,11 +102,11 @@ public class WebchatController {
                 logger.info("=======>WeChat request data:" + retstr);
                 if ("aes".equals(encryptType)) {
                     logger.info("=======>WeChat service aes:" + appid);
-                    String encrypt = WXUtils.getXmlNode(retstr, "Encrypt");
+                    String encrypt = WeChatUtil.getXmlNode(retstr, "Encrypt");
                     //TODO  encodingAESKey
                     String encodingAESKey = "";
                     //getEncodingAESKey(appid);//消息加解密密钥
-                    String xmlStr = WXUtils.msgDecrypt(timestamp, nonce, msgSignature, encrypt, appid, token, encodingAESKey);
+                    String xmlStr = WeChatUtil.msgDecrypt(timestamp, nonce, msgSignature, encrypt, appid, token, encodingAESKey);
                     requestMap = XmlUtil.xml2map(xmlStr);
                 } else {
                     logger.info("=======>WeChat service unencrypted:" + appid);

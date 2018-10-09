@@ -9,7 +9,6 @@ public class QrscanEvent extends BaseEvent {
 
     private String ToUserName; // 开发者微信号
     private String FromUserName;// 发送方帐号（一个OpenID）
-    private String CreateTime; // 消息创建时间 （整型）
     private String MsgType; // 消息类型 event
     private String Event; // 事件类型
     private String EventKey; // 事件KEY值，是一个32位无符号整数，即创建二维码时的二维码scene_id
@@ -29,14 +28,6 @@ public class QrscanEvent extends BaseEvent {
 
     public void setFromUserName(String fromUserName) {
         FromUserName = fromUserName;
-    }
-
-    public String getCreateTime() {
-        return CreateTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        CreateTime = createTime;
     }
 
     public String getMsgType() {
