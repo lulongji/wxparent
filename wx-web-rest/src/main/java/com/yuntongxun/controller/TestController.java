@@ -1,6 +1,7 @@
 package com.yuntongxun.controller;
 
 
+import com.yuntongxun.base.cache.redis.springTemplate.RedisTemplateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Description: Hello World
@@ -64,8 +66,9 @@ public class TestController {
 
 
     @RequestMapping("/redis")
-    public String redis() {
+    public String redis() throws Exception {
         redisTemplate.opsForValue().set("aaa", "ssssss");
+        RedisTemplateUtil.set("111111", "wwwww", 1, TimeUnit.MINUTES);
         return "test";
     }
 

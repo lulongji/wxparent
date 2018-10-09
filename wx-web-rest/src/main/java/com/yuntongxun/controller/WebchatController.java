@@ -6,13 +6,13 @@ import com.yuntongxun.model.wechat.utils.MessageUtil;
 import com.yuntongxun.model.wechat.utils.WeChatUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.websocket.server.PathParam;
 import java.io.PrintWriter;
 import java.util.Map;
 
@@ -38,7 +38,7 @@ public class WebchatController {
      * @throws Exception
      */
     @RequestMapping(value = "/{appid}/process", produces = "application/json;charset=UTF-8", method = RequestMethod.GET)
-    public void processGet(HttpServletRequest request, HttpServletResponse response, @PathParam("appid") String appid) throws Exception {
+    public void processGet(HttpServletRequest request, HttpServletResponse response, @PathVariable("appid") String appid) throws Exception {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
@@ -74,7 +74,7 @@ public class WebchatController {
      * @throws Exception
      */
     @RequestMapping(value = "/{appid}/process", produces = "application/json;charset=UTF-8", method = RequestMethod.POST)
-    public void processPost(HttpServletRequest request, HttpServletResponse response, @PathParam("appid") String appid) throws Exception {
+    public void processPost(HttpServletRequest request, HttpServletResponse response, @PathVariable("appid") String appid) throws Exception {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
