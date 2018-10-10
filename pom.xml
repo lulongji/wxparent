@@ -106,13 +106,6 @@
             <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
 
-        <!-- 热部署，不用重启 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-        </dependency>
-
         <!-- 添加freemarker依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
