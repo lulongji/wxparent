@@ -87,11 +87,24 @@
             <version>2.5.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.5</version>
+        </dependency>
+
         <!-- 将作为Redis对象序列化器 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.47</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>2.4</version>
+            <classifier>jdk15</classifier>
         </dependency>
 
         <!--启动时启动内置tomcat -->
@@ -163,6 +176,7 @@
         <module>wx-model</module>
         <module>wx-api</module>
         <module>wx-service</module>
-        <module>wx-web-rest</module>
+        <module>wx-rest</module>
+        <module>wx-rest-open</module>
     </modules>
 </project>

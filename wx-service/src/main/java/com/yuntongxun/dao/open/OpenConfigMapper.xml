@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuntongxun.dao.open.OpenConfigDao">
+
+    <insert id="add" parameterType="OpenConfig">
+        INSERT INTO wx_open_config
+        (
+        <trim prefix="" suffixOverrides=",">
+            appid,
+            authorizer_access_token,
+            authorizer_access_token_expires_in,
+            authorizer_access_token_time,
+            authorizer_refresh_token,
+            auth_code,
+            auth_code_expires_in,
+            auth_code_time,
+            func_info,
+            accessId,
+        </trim>
+        )values (
+        <trim prefix="" suffixOverrides=",">
+            #{appid},
+            #{authorizerAccessToken},
+            #{authorizerAccessTokenExpiresIn},
+            #{authorizerAccessTokenTime},
+            #{authorizerRefreshToken},
+            #{authCode},
+            #{authCodeExpiresIn},
+            #{authCodeTime},
+            #{funcInfo},
+            #{accessId},
+        </trim>
+        )
+    </insert>
+
+    <update id="updateByAppId" parameterType="OpenConfig">
+        UPDATE wx_open_config
+        <trim prefix="set" suffixOverrides=",">
+            <if test="null != createtime and '' != createtime">
+                createtime =#{createtime},
+            </if>
+            <if test="null != authCodeExpiresIn and '' != authCodeExpiresIn">
+                auth_code_expires_in =#{authCodeExpiresIn},
+            </if>
+            <if test="null != authCodeTime and '' != authCodeTime">
+                auth_code_time =#{authCodeTime},
+            </if>
+            <if test="null != authorizerAccessTokenExpiresIn and '' != authorizerAccessTokenExpiresIn">
+                authorizer_access_token_expires_in =#{authorizerAccessTokenExpiresIn},
+            </if>
+            <if test="null != authCode and '' != authCode">
+                auth_code =#{authCode},
+            </if>
+            <if test="null != accessId and '' != accessId">
+                accessId =#{accessId},
+            </if>
+            <if test="null != authorizerAccessTokenTime and '' != authorizerAccessTokenTime">
+                authorizer_access_token_time =#{authorizerAccessTokenTime},
+            </if>
+            <if test="null != authorizerAccessToken and '' != authorizerAccessToken">
+                authorizer_access_token =#{authorizerAccessToken},
+            </if>
+            <if test="null != authorizerRefreshToken and '' != authorizerRefreshToken">
+                authorizer_refresh_token =#{authorizerRefreshToken},
+            </if>
+            <if test="null != funcInfo and '' != funcInfo">
+                func_info =#{funcInfo},
+            </if>
+        </trim>
+        <where>
+            <if test="null != appid and '' != appid">
+                AND appid =#{appid}
+            </if>
+        </where>
+    </update>
+
+    <delete id="delete" parameterType="OpenConfig">
+        DELETE FROM wx_open_config
+        <where>
+            <if test="null != createtime and '' != createtime">
+                AND createtime =#{createtime}
+            </if>
+            <if test="null != authCodeExpiresIn and '' != authCodeExpiresIn">
+                AND auth_code_expires_in =#{authCodeExpiresIn}
+            </if>
+            <if test="null != authCodeTime and '' != authCodeTime">
+                AND auth_code_time =#{authCodeTime}
+            </if>
+            <if test="null != authorizerAccessTokenExpiresIn and '' != authorizerAccessTokenExpiresIn">
+                AND authorizer_access_token_expires_in =#{authorizerAccessTokenExpiresIn}
+            </if>
+            <if test="null != authCode and '' != authCode">
+                AND auth_code =#{authCode}
+            </if>
+            <if test="null != accessId and '' != accessId">
+                AND accessId =#{accessId}
+            </if>
+            <if test="null != authorizerAccessTokenTime and '' != authorizerAccessTokenTime">
+                AND authorizer_access_token_time =#{authorizerAccessTokenTime}
+            </if>
+            <if test="null != authorizerAccessToken and '' != authorizerAccessToken">
+                AND authorizer_access_token =#{authorizerAccessToken}
+            </if>
+            <if test="null != appid and '' != appid">
+                AND appid =#{appid}
+            </if>
+            <if test="null != authorizerRefreshToken and '' != authorizerRefreshToken">
+                AND authorizer_refresh_token =#{authorizerRefreshToken}
+            </if>
+            <if test="null != id and '' != id">
+                AND id =#{id}
+            </if>
+            <if test="null != funcInfo and '' != funcInfo">
+                AND func_info =#{funcInfo}
+            </if>
+        </where>
+    </delete>
+
+    <select id="getOpenConfigList" parameterType="OpenConfig" resultType="OpenConfig">
+        SELECT
+        <trim prefix="" suffixOverrides=",">
+            id,
+            appid,
+            authorizer_access_token,
+            authorizer_access_token_expires_in,
+            authorizer_access_token_time,
+            authorizer_refresh_token,
+            auth_code,
+            auth_code_expires_in,
+            auth_code_time,
+            func_info,
+            accessId,
+            createtime,
+            updatetime,
+        </trim>
+        FROM wx_open_config
+        <where>
+            <if test="null != createtime and '' != createtime">
+                AND createtime =#{createtime}
+            </if>
+            <if test="null != authCodeExpiresIn and '' != authCodeExpiresIn">
+                AND auth_code_expires_in =#{authCodeExpiresIn}
+            </if>
+            <if test="null != authCodeTime and '' != authCodeTime">
+                AND auth_code_time =#{authCodeTime}
+            </if>
+            <if test="null != authorizerAccessTokenExpiresIn and '' != authorizerAccessTokenExpiresIn">
+                AND authorizer_access_token_expires_in =#{authorizerAccessTokenExpiresIn}
+            </if>
+            <if test="null != authCode and '' != authCode">
+                AND auth_code =#{authCode}
+            </if>
+            <if test="null != accessId and '' != accessId">
+                AND accessId =#{accessId}
+            </if>
+            <if test="null != authorizerAccessTokenTime and '' != authorizerAccessTokenTime">
+                AND authorizer_access_token_time =#{authorizerAccessTokenTime}
+            </if>
+            <if test="null != authorizerAccessToken and '' != authorizerAccessToken">
+                AND authorizer_access_token =#{authorizerAccessToken}
+            </if>
+            <if test="null != appid and '' != appid">
+                AND appid =#{appid}
+            </if>
+            <if test="null != authorizerRefreshToken and '' != authorizerRefreshToken">
+                AND authorizer_refresh_token =#{authorizerRefreshToken}
+            </if>
+            <if test="null != id and '' != id">
+                AND id =#{id}
+            </if>
+            <if test="null != funcInfo and '' != funcInfo">
+                AND func_info =#{funcInfo}
+            </if>
+        </where>
+    </select>
+
+
+    <select id="getOpenConfigByAppId" parameterType="OpenConfig" resultType="OpenConfig">
+        SELECT
+        *
+        FROM
+        wx_open_config
+        <where>
+            <if test="null !=appid and '' !=appid">
+                appid = #{appid}
+            </if>
+        </where>
+    </select>
+
+</mapper>

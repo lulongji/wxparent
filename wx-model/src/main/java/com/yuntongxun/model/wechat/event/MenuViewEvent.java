@@ -1,5 +1,7 @@
 package com.yuntongxun.model.wechat.event;
 
+import lombok.Data;
+
 /**
  * 自定义菜单事件
  * <p>
@@ -7,15 +9,8 @@ package com.yuntongxun.model.wechat.event;
  *
  * @author apple
  */
+@Data
 public class MenuViewEvent extends BaseEvent {
 
     private String EventKey; // 事件KEY值，设置的跳转URL
-
-    public String getEventKey() {
-        return EventKey;
-    }
-
-    public void setEventKey(String eventKey) {
-        EventKey = eventKey;
-    }
 }

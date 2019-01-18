@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuntongxun.dao.open.WxPlatformInfoDao">
+
+    <insert id="add" parameterType="WxPlatformInfo">
+        INSERT INTO wx_platform_info
+        (
+        <trim prefix="" suffixOverrides=",">
+            id,
+            appid,
+            nickName,
+            headImg,
+            alias,
+            createtime,
+            ronglianappid,
+            userName,
+        </trim>
+        )values (
+        <trim prefix="" suffixOverrides=",">
+            #{id},
+            #{appid},
+            #{nickName},
+            #{headImg},
+            #{alias},
+            #{createtime},
+            #{ronglianappid},
+            #{userName},
+        </trim>
+        )
+    </insert>
+
+    <update id="update" parameterType="WxPlatformInfo">
+        UPDATE wx_platform_info
+        <trim prefix="set" suffixOverrides=",">
+            <if test="null != createtime and '' != createtime">
+                createtime =#{createtime},
+            </if>
+            <if test="null != headImg and '' != headImg">
+                headImg =#{headImg},
+            </if>
+            <if test="null != ronglianappid and '' != ronglianappid">
+                ronglianappid =#{ronglianappid},
+            </if>
+            <if test="null != nickName and '' != nickName">
+                nickName =#{nickName},
+            </if>
+            <if test="null != appid and '' != appid">
+                appid =#{appid},
+            </if>
+            <if test="null != alias and '' != alias">
+                alias =#{alias},
+            </if>
+            <if test="null != id and '' != id">
+                id =#{id},
+            </if>
+            <if test="null != userName and '' != userName">
+                userName =#{userName},
+            </if>
+        </trim>
+        <where>
+            <if test="null != createtime and '' != createtime">
+                AND createtime =#{createtime}
+            </if>
+            <if test="null != headImg and '' != headImg">
+                AND headImg =#{headImg}
+            </if>
+            <if test="null != ronglianappid and '' != ronglianappid">
+                AND ronglianappid =#{ronglianappid}
+            </if>
+            <if test="null != nickName and '' != nickName">
+                AND nickName =#{nickName}
+            </if>
+            <if test="null != appid and '' != appid">
+                AND appid =#{appid}
+            </if>
+            <if test="null != alias and '' != alias">
+                AND alias =#{alias}
+            </if>
+            <if test="null != id and '' != id">
+                AND id =#{id}
+            </if>
+            <if test="null != userName and '' != userName">
+                AND userName =#{userName}
+            </if>
+        </where>
+    </update>
+
+    <update id="updateByAppid" parameterType="WxPlatformInfo">
+        UPDATE wx_platform_info
+        <trim prefix="set" suffixOverrides=",">
+            <if test="null != createtime and '' != createtime">
+                createtime =#{createtime},
+            </if>
+            <if test="null != headImg and '' != headImg">
+                headImg =#{headImg},
+            </if>
+            <if test="null != ronglianappid and '' != ronglianappid">
+                ronglianappid =#{ronglianappid},
+            </if>
+            <if test="null != nickName and '' != nickName">
+                nickName =#{nickName},
+            </if>
+            <if test="null != appid and '' != appid">
+                appid =#{appid},
+            </if>
+            <if test="null != alias and '' != alias">
+                alias =#{alias},
+            </if>
+            <if test="null != id and '' != id">
+                id =#{id},
+            </if>
+            <if test="null != userName and '' != userName">
+                userName =#{userName},
+            </if>
+        </trim>
+        <where>
+            <if test="null != appid and '' != appid">
+                AND appid =#{appid}
+            </if>
+        </where>
+    </update>
+
+    <delete id="delete" parameterType="WxPlatformInfo">
+        DELETE FROM wx_platform_info
+        <where>
+            <if test="null != createtime and '' != createtime">
+                AND createtime =#{createtime}
+            </if>
+            <if test="null != headImg and '' != headImg">
+                AND headImg =#{headImg}
+            </if>
+            <if test="null != ronglianappid and '' != ronglianappid">
+                AND ronglianappid =#{ronglianappid}
+            </if>
+            <if test="null != nickName and '' != nickName">
+                AND nickName =#{nickName}
+            </if>
+            <if test="null != appid and '' != appid">
+                AND appid =#{appid}
+            </if>
+            <if test="null != alias and '' != alias">
+                AND alias =#{alias}
+            </if>
+            <if test="null != id and '' != id">
+                AND id =#{id}
+            </if>
+            <if test="null != userName and '' != userName">
+                AND userName =#{userName}
+            </if>
+        </where>
+    </delete>
+
+    <select id="getWxPlatformInfoList" parameterType="WxPlatformInfo" resultType="WxPlatformInfo">
+        SELECT
+        <trim prefix="" suffixOverrides=",">
+            id,
+            appid,
+            nickName,
+            headImg,
+            alias,
+            createtime,
+            ronglianappid,
+            userName,
+        </trim>
+        FROM wx_platform_info
+        <where>
+            <if test="null != createtime and '' != createtime">
+                AND createtime =#{createtime}
+            </if>
+            <if test="null != headImg and '' != headImg">
+                AND headImg =#{headImg}
+            </if>
+            <if test="null != ronglianappid and '' != ronglianappid">
+                AND ronglianappid =#{ronglianappid}
+            </if>
+            <if test="null != nickName and '' != nickName">
+                AND nickName =#{nickName}
+            </if>
+            <if test="null != appid and '' != appid">
+                AND appid =#{appid}
+            </if>
+            <if test="null != alias and '' != alias">
+                AND alias =#{alias}
+            </if>
+            <if test="null != id and '' != id">
+                AND id =#{id}
+            </if>
+            <if test="null != userName and '' != userName">
+                AND userName =#{userName}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

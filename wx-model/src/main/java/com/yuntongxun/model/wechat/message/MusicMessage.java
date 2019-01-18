@@ -1,21 +1,14 @@
 package com.yuntongxun.model.wechat.message;
 
 import com.yuntongxun.model.wechat.wx.Music;
+import lombok.Data;
 
 /**
  * 音乐消息
  *
  * @author lu
  */
+@Data
 public class MusicMessage extends BaseMessage {
-    // 音乐
-    private com.yuntongxun.model.wechat.wx.Music Music;
-
-    public Music getMusic() {
-        return Music;
-    }
-
-    public void setMusic(Music music) {
-        Music = music;
-    }
+    private Music music;
 }
